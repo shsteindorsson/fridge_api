@@ -1,6 +1,6 @@
 class V1::ProductsController < ApplicationController
   def create
-    product = products.create(product_params)
+    product = Product.create(product_params)
     if product.persisted?
       render json: { message: 'Product created successfully' }, status: 201
     else
