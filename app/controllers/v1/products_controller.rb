@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class V1::ProductsController < ApplicationController
+  def index
+    products = Product.all
+    render json: { entries: products }
+  end
+
   def create
     product = Product.create(product_params)
     if product.persisted?
